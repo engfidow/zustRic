@@ -7,6 +7,22 @@ module.exports = {
   ],
   mode: "jit",
   theme: {
+    screens: {
+      sm: "576px",
+      "sm-max": { max: "576px" },
+      md: "768px",
+      "md-max": { max: "768px" },
+      lg: "992px",
+      "lg-max": { max: "992px" },
+      xl: "1200px",
+      "xl-max": { max: "1200px" },
+      "2xl": "1320px",
+      "2xl-max": { max: "1320px" },
+      "3xl": "1600px",
+      "3xl-max": { max: "1600px" },
+      "4xl": "1850px",
+      "4xl-max": { max: "1850px" },
+    },
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
@@ -28,6 +44,7 @@ module.exports = {
       backgroundImage: {
         overview: "url('/overview/bg.svg')",
         cta: "url('/cta/bg.svg')",
+        header: "url('/header.png')",
       }
     },
   },
