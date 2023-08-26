@@ -27,10 +27,14 @@ const ScrollToTopButton = () => {
 
   return (
     <button
-      className={`fixed right-6 bottom-6 bg-[#00C957] p-5 rounded-full text-white cursor-pointer z-10 ${
+      className={`fixed right-6 bottom-6  p-5 rounded-full text-white cursor-pointer z-10 ${
         isVisible ? 'visible' : 'invisible'
       }`}
       onClick={scrollToTop}
+      style={{
+        backgroundImage: 'linear-gradient(to top, #270B81, #01C0FE, #2C62E5)',
+        backgroundColor: '#01C0FE', // Fallback color for browsers that don't support gradients
+      }}
     >
       <FaArrowUp />
     </button>
