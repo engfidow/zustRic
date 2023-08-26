@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer
       className="pt-[142px] pb-[60px] shadow-2xl mt-16 "
-     
+      data-aos='fade-up' data-aos-delay='200'
     >
       <div className=" mx-[10%]">
         <div className="flex flex-col items-center text-center lg:flex-row lg:items-start lg:text-left lg:justify-between gap-y-8">

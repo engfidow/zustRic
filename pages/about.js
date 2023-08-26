@@ -1,10 +1,12 @@
 'use client';
 
 
-
+import AOS from "aos";
+import "aos/dist/aos.css"; 
 import RootLayout from '@/app/RootLayout';
 import About from '@/components/About';
 import Banner from '@/components/Banner';
+
 import Footer from '@/components/Footer';
 import Growth from '@/components/Growth';
 import Header from '@/components/Header';
@@ -14,9 +16,15 @@ import Service from '@/components/Service';
 import Vision from '@/components/Vision';
 import Head from 'next/head';
 
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const about = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1800,
+      offset: 100,
+    });
+  }, []);
   return (
     <>
     <ScrollToTopButton/>
@@ -25,6 +33,7 @@ const about = () => {
     </Head>
     <Navbar/>
     <Header title= "About Us"/>
+   
     <About/>
     <Vision/>
     <Service/>

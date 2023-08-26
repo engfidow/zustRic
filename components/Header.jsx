@@ -6,7 +6,7 @@ const Header = (props) => {
       <div className="max-w-[1340px] mx-auto px-[25px] items-center justify-center text-center">
         {/* text */}
         
-        <h1 className='text-5xl font-bold text-white text-center'>{props.title}</h1>
+        <h1 className='text-5xl font-bold text-white text-center'  data-aos='zoom-in' data-aos-delay='200'>{props.title}</h1>
        
        
       </div>
