@@ -60,6 +60,30 @@ const Navbar = () => {
     },
     { route: "/contact", label: "Contact" },
   ];
+  const MobilemenuItems = [
+    { route: "/", label: "Home" },
+    { route: "/about", label: "About" },
+    {
+      route: "/research",
+      label: "Research",
+      
+    },
+    {
+      route: "/research/publications",
+      label: "Publication",
+      
+    },
+    {
+      route: "/solutions",
+      label: "Solutions & Services",
+    },
+    {
+      route: "/opportunities",
+      label: "Opportunities",
+      
+    },
+    { route: "/contact", label: "Contact" },
+  ];
 
   return (
     <nav
@@ -82,10 +106,11 @@ const Navbar = () => {
             height={80}
             className="object-contain cursor-pointer"
           />
-          <p className="text-[#1260A9] font-bold">
+          <p className="text-[#1260A9] font-bold lg:block hidden">
             Research and{" "}
             <span className="text-[#28B6EB]">Innovation Center</span>
           </p>
+          <p className="text-[#1260A9] font-bold lg:hidden">RIC</p>
         </Link>
 
         <ul className="hidden lg:flex flex-row gap-10 relative">
@@ -128,6 +153,7 @@ const Navbar = () => {
 
         {/* mobile navigation */}
 
+        {/* Mobile navigation */}
         <div className="lg:hidden flex flex-1 justify-end items-center">
           <Image
             src={toggle ? "/close.svg" : "/menu.svg"}
@@ -137,61 +163,26 @@ const Navbar = () => {
             className="w-[28px] h-[28px] object-contain cursor-pointer"
             onClick={() => setToggle(!toggle)}
           />
-
           {toggle && (
             <div className="flex p-6 bg-white backdrop-blur-xl shadow-2xl absolute top-20 right-0 mx-4 my-2 min-w-[340px] z-10 rounded-xl">
-              <ul className="list-none flex justify-center items-center flex-1 flex-col gap-4">
-                {menuItems.map((item, index) => (
-                  <React.Fragment key={index}>
+              <ul className="list-none flex justify-center items-center flex-1 flex-col gap-2">
+                {MobilemenuItems.map((item, index) => (
+                  <li
+                    key={index}
+                    className={`font-poppins font-medium mb-7 cursor-pointer text-[20px] ${
+                      router.pathname === item.route
+                        ? "text-[#01C0FE]"
+                        : "text-[#292830]"
+                    }`}
+                    onClick={item.onClick}
+                  >
+                    <Link href={item.route}>{item.label}</Link>
                    
-                      <li
-                        className={`font-poppins font-medium mb-7 cursor-pointer text-[25px] ${
-                          router.pathname === item.route
-                            ? "text-[#01C0FE]"
-                            : "text-[#292830]"
-                        }`}
-                        onMouseEnter={item.onMouseEnter}
-                        onMouseLeave={item.onMouseLeave}
-                      >
-                        <Link href={item.route} className="hover:text-[#01C0FE]" > {item.label}</Link>
-                        {item.label === "Research" && showSubmenu && (
-                          <ul className="absolute left-0 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] mt-2 py-2 rounded-lg w-full text-center">
-                            <li className="px-8 py-2 hover:bg-gray-100">
-                              <Link href="/research/publications">
-                                Publications
-                              </Link>
-                            </li>
-                            <li className="px-8 py-2 hover:bg-gray-100">
-                              <Link href="/research/conference">
-                                Conferences
-                              </Link>
-                            </li>
-                          </ul>
-                        )}
-                        {item.label === "Opportunities" &&
-                          showOpportunities && (
-                            <ul className="absolute left-0 bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] mt-2 py-2 rounded-lg w-full text-center">
-                              <li className="px-8 py-2 hover:bg-gray-100">
-                                <Link href="/opportunities/partnerships">
-                                  Partnerships
-                                </Link>
-                              </li>
-                              <li className="px-8 py-2 hover:bg-gray-100">
-                                <Link href="/opportunities/scholarships">
-                                  Scholarships
-                                </Link>
-                              </li>
-                              {/* Add more submenu items as needed */}
-                            </ul>
-                          )}
-                      </li>
-                    
-                  </React.Fragment>
+                  </li>
                 ))}
               </ul>
             </div>
           )}
-          {/*end  mobile navigation */}
         </div>
       </div>
     </nav>
