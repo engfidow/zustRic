@@ -1,5 +1,5 @@
 import RootLayout from '@/app/RootLayout'
-import Banner from '@/components/Banner'
+
 import Contact from '@/components/Contact'
 import ContactInfo from '@/components/ContactInfo'
 import Footer from '@/components/Footer'
@@ -22,13 +22,13 @@ const contact = () => {
     <>
     <ScrollToTopButton/>
     <Head>
-        <title>barbaar tech</title>
+        <title>Zust Ric</title>
     </Head>
     <Navbar/>
     <Header title= "Contact Us"/>
     <ContactInfo/>
     <Contact/>
-    <Banner />
+    {/* <Banner /> */}
     <Footer />
     </>
   )

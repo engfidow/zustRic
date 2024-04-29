@@ -1,48 +1,59 @@
-
 import Head from "next/head";
 import AOS from "aos";
-import "aos/dist/aos.css"; 
-import RootLayout from "@/app/RootLayout";
+import "aos/dist/aos.css";
+
 import About from "@/components/About";
-import Banner from "@/components/Banner";
+
 import Contact from "@/components/Contact";
 import ContactInfo from "@/components/ContactInfo";
 import Footer from "@/components/Footer";
-import Growth from "@/components/Growth";
+
 import Hero from "@/components/Hero";
 import Info from "@/components/Info";
 import Navbar from "@/components/Navbar";
-import Portfolio from "@/components/Portfolio";
-import ScrollToTopButton from "@/components/ScrollToTopButton";
-import Service from "@/components/Service";
-import Testimonials from "@/components/Testimonials";
-import { useEffect } from "react";
 
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+
+
+import { useEffect } from "react";
+import "../app/globals.css";
+import VisionAndMission from "@/components/VisionandMissin";
+import DirectorMessage from "@/components/DirectorMessage";
+import ReFacults from "@/components/research/ReFacults";
+import ReAreas from "@/components/research/ReAreas";
+import Conferences from "@/components/conferences";
+import ListPartnership from "@/components/ListPartnership";
+import Scholarship from "@/components/Scholarship";
+import SolutionsServices from "@/components/SolutionsServices";
 export default function Home() {
-    useEffect(() => {
-        AOS.init({
-          duration: 1800,
-          offset: 100,
-        });
-      }, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 1800,
+      offset: 100,
+    });
+  }, []);
 
   return (
     <>
       <ScrollToTopButton />
       <Head>
-        <title>barbaar tech</title>
+        <title>zust RIC</title>
       </Head>
       <Navbar />
       <Hero />
       <Info />
       <About />
-      <Service />
-      <Portfolio />
-      <Growth />
-      <Testimonials />
+      <VisionAndMission />
+      <SolutionsServices />
+      <DirectorMessage />
+      <ReFacults />
+      <ReAreas />
+      <Conferences/>
+      <ListPartnership/>
+      <Scholarship/>
       <ContactInfo />
       <Contact />
-      <Banner />
+      {/* <Banner /> */}
       <Footer />
     </>
   );

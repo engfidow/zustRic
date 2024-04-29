@@ -1,52 +1,52 @@
-"use client";
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
+const heroData = [
+  {
+    title: 'Inspiring Innovation',
+    description: 'At our Research and Innovation Center, we inspire minds to think beyond limits, exploring the unknown to create a better tomorrow.',
+    imageUrl: '/hero/img.png', // Update paths as necessary
+  },
+  {
+    title: 'Collaborative Excellence',
+    description: 'Experience collaborative excellence at our center, where diverse talents converge to solve complex challenges and drive meaningful change.',
+    imageUrl: '/hero/im2.jpg',
+  },
+  {
+    title: 'Transformative Impact',
+    description: 'Join us in making a transformative impact on society. Together, we can turn ideas into reality and shape a future we can all be proud of.',
+    imageUrl: '/hero/im3.jpg',
+  },
+  // Add more slides as needed
+];
 
-import Image from "next/image";
 const Hero = () => {
-  
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const slideInterval = setInterval(() => setCurrentSlide(prevSlide => (prevSlide + 1) % heroData.length), 5000);
+    return () => clearInterval(slideInterval);
+  }, [currentSlide]);
+
   return (
-    <>
-      <section className="min-h-[900px]">
-        <div className="container   mx-auto lg:mx-[8%]">
-          <div className="flex flex-col   lg:flex-row items-center justify-center text-center lg:text-left mt-40">
-          
-            <div className="flex-1">
-              <h1 className="lg:text-[5rem] text-[3rem] font-bold mb-2  lg:mb-5" data-aos="fade-down"
-              data-aos-delay="500"
-              >Empowering You Business Growth</h1>
-              
-              <p className="lead mb-5 lg:mb-10"
-              data-aos="fade-down"
-              data-aos-delay="600"
-               
-              >📢 Empower Your Future, Ignite Your Growth!</p>
-              <button className="bg-[#3226AE] text-white py-4 px-10 rounded-full flex justify-center items-center lg:gap-x-4 hover:bg-[#3C6EED] ml-1 lg:ml-0"
-               data-aos="fade-down"
-               data-aos-delay="700"
-              >
-                Contact Us Now
-                </button>
-              {/* <div className="flex items-center max-w-sm lg:max-w-full mx-auto lg:mx-0 gap-x-2 lg:gap-x-6"
-               data-aos="fade-down"
-              data-aos-delay="700"
-              >
-                
-               
-              </div> */}
-            </div>
-
-            <div className="flex-1"
-             data-aos="fade-up"
-             data-aos-delay="800"
-             
-            >
-              <Image src="/hero.png" alt="" width={500} height={500} />
-            </div>
-
-          </div>
+    <section className="relative min-h-[50vh] md:min-h-[70vh] lg:min-h-[90vh] flex items-center justify-center">
+      {heroData.map((slide, index) => (
+        <div key={index} className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}>
+          <Image
+            src={slide.imageUrl}
+            alt="Hero Image"
+            layout="fill"
+            objectFit="cover"
+            className="absolute z-0"
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-60"></div> {/* Adjusted overlay opacity for better readability */}
         </div>
-      </section>
-    </>
+      ))}
+      <div className="relative z-10 items-center justify-center text-center lg:max-w-2xl lg:text-left">
+        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white text-center">{heroData[currentSlide].title}</h1>
+        <p className="mt-4 md:mt-6 text-md md:text-lg lg:text-xl text-white leading-relaxed text-justify">{heroData[currentSlide].description}</p>
+      </div>
+    </section>
   );
 };
 

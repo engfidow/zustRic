@@ -5,18 +5,21 @@ import AOS from "aos";
 import "aos/dist/aos.css"; 
 import RootLayout from '@/app/RootLayout';
 import About from '@/components/About';
-import Banner from '@/components/Banner';
+
 
 import Footer from '@/components/Footer';
-import Growth from '@/components/Growth';
+
 import Header from '@/components/Header';
 import Navbar from '@/components/Navbar';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
-import Service from '@/components/Service';
-import Vision from '@/components/Vision';
+
+
 import Head from 'next/head';
 
 import React, { useEffect } from 'react'
+import VisionandMissin from "@/components/VisionandMissin";
+import ObjectiveValues from "@/components/ObjectiveValues";
+import DirectorMessage from "@/components/DirectorMessage";
 
 const about = () => {
   useEffect(() => {
@@ -29,16 +32,17 @@ const about = () => {
     <>
     <ScrollToTopButton/>
     <Head>
-        <title>barbaar tech</title>
+        <title>Zust Ric</title>
     </Head>
     <Navbar/>
     <Header title= "About Us"/>
    
     <About/>
-    <Vision/>
-    <Service/>
-    <Growth/>
-    <Banner />
+    <VisionandMissin/>
+    <ObjectiveValues/>
+    <DirectorMessage/>
+    
+   
     <Footer />
     </>
     

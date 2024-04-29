@@ -32,7 +32,7 @@ const ScrollToTopButton = () => {
       }`}
       onClick={scrollToTop}
       style={{
-        backgroundImage: 'linear-gradient(to top, #270B81, #01C0FE, #2C62E5)',
+       
         backgroundColor: '#01C0FE', // Fallback color for browsers that don't support gradients
       }}
     >
