@@ -110,7 +110,7 @@ const Navbar = () => {
             Research and{" "}
             <span className="text-[#28B6EB]">Innovation Center</span>
           </p>
-          <p className="text-[#1260A9] font-bold lg:hidden">RIC</p>
+          {/* <p className="text-[#1260A9] font-bold lg:hidden ">RIC</p> */}
         </Link>
 
         <ul className="hidden lg:flex flex-row gap-10 relative">
